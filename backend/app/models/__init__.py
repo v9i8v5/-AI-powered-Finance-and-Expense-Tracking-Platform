@@ -21,11 +21,25 @@ class ExpenseCreate(BaseModel):
     date: datetime
 
 
+class ExpenseUpdate(BaseModel):
+    amount: Optional[float] = None
+    category: Optional[str] = None
+    description: Optional[str] = None
+    date: Optional[datetime] = None
+
+
 class IncomeCreate(BaseModel):
     amount: float
     source: str
     description: str
     date: datetime
+
+
+class IncomeUpdate(BaseModel):
+    amount: Optional[float] = None
+    source: Optional[str] = None
+    description: Optional[str] = None
+    date: Optional[datetime] = None
 
 
 class BudgetCreate(BaseModel):

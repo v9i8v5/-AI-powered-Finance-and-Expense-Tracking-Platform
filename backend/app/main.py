@@ -3,6 +3,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.config import settings
 from app.db import connect_to_mongo, close_mongo_connection
 from app.api.users import router as auth_router
+from app.api.expenses import router as expenses_router
+from app.api.income import router as income_router
+from app.api.analytics import router as analytics_router
+from app.api.budgets import router as budgets_router
+from app.api.ai import router as ai_router
 
 app = FastAPI(title=settings.APP_NAME, debug=settings.DEBUG)
 
@@ -28,6 +33,11 @@ async def shutdown():
 
 # Include routers
 app.include_router(auth_router)
+app.include_router(expenses_router)
+app.include_router(income_router)
+app.include_router(analytics_router)
+app.include_router(budgets_router)
+app.include_router(ai_router)
 
 
 @app.get("/health")
