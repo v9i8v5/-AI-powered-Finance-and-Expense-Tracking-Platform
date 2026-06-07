@@ -1,3 +1,4 @@
+
 # AI-Powered Finance & Expense Tracking Platform
 
 A full-stack personal finance management platform with AI-powered insights, intelligent chatbot, expense tracking, income management, budget planning, and rich analytics — built with **FastAPI**, **React**, and **MongoDB**.
