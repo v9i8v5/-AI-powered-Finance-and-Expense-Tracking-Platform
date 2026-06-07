@@ -21,6 +21,8 @@ services:
       - "8000:8000"
     depends_on:
       - mongodb
+    env_file:
+      - ./backend/.env
     environment:
       MONGODB_URL: mongodb://admin:admin@mongodb:27017
       DATABASE_NAME: finance_tracker
@@ -30,6 +32,16 @@ services:
     networks:
       - finance-network
     command: python -m uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  frontend:
+    build: ./frontend
+    container_name: finance-tracker-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - finance-network
 
 volumes:
   mongodb_data:

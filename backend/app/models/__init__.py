@@ -47,5 +47,15 @@ class BudgetCreate(BaseModel):
     limit: float
 
 
+class BudgetUpdate(BaseModel):
+    limit: float
+
+
+class ChatMessage(BaseModel):
+    role: str   # "user" | "assistant"
+    content: str
+
+
 class ChatMessageCreate(BaseModel):
     content: str
+    history: Optional[list[ChatMessage]] = []
